@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #000; /* Black background */
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  background-color: rgb(199, 44, 44); /* Semi-transparent black */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0); /* Fully opaque black when scrolled */
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: gray;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between the items */
+}
+
+.header-right a {
+  color: gray;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-style: italic; 
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.header-right a:hover {
+  color: #fff; /* Brighter color on hover */
+}
+
+/* Main Content */
+main {
+  padding-top: 70px; /* Prevent content overlap with fixed header */
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #ccc; /* Light gray for headings */
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 1rem;
+  color: #aaa; /* Slightly darker gray for text */
+}
+
+section#home {
+  padding-top: 100px; /* Extra space for the first section */
+}
+
+/* About Section */
+main p {
+  font-size: 1.2rem; /* Increase font size */
+  font-style: italic; /* Apply italics */
+  line-height: 1.6; /* Improve readability */
+  color: #ddd; /* Light text color for better contrast */
+  margin: 20px auto; /* Center the content */
+  max-width: 95%; /* Prevent the text from overflowing */
+  text-align: justify; /* Align text for a clean look */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: gray;
+  margin-top: 20px;
+}
+/* Tooltip styles */
+.resume-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Tooltip things*/
+.resume-link .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 70px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 120%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 0.8em;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.resume-link:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-right {
+    margin-top: 10px;
+  }
+
+  .header-right a {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 40px 10px;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
