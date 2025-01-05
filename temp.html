@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .navbar button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 0 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <button onclick="window.location.href='education.html'">Education</button>
+    <button onclick="window.location.href='experience.html'">Experience</button>
+    <button onclick="window.location.href='skills.html'">Skills</button>
+    <button onclick="window.location.href='projects.html'">Projects</button>
+  </div>
+
+  <!-- Rest of your content -->
+  <div class="content">
+    <h1>Welcome to my Portfolio</h1>
+    <p>Select a section from the navbar to explore more about me.</p>
+  </div>
+
+</body>
+</html>

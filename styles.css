@@ -2,13 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  color: #fff;
-  background-color: #000; /* Black background */
+  color: #6e3e3e;
+  background-color: #c7c0c0; 
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal scrolling */
 html, body {
   margin: 0;
   padding: 0;
@@ -20,22 +19,30 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  background-color: rgb(199, 44, 44); /* Semi-transparent black */
+  padding: 15px 0px;
+  background-color: rgb(44, 41, 41); 
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  z-index: 1000; 
+  transition: background-color 0.3s ease; 
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;  /* Add space on the left and right sides of the content */
+  width: 100%;
+  max-width: 1200px; /* Optional: constrain content width */
+  margin: 0 auto;  /* Center the container */
 }
 
 header.scrolled {
-  background-color: rgba(0, 0, 0, 0); /* Fully opaque black when scrolled */
+  background-color: rgba(0, 0, 0, 0); 
 }
 
-header h1 {
+header h1{
   font-size: 1.5rem;
   color: gray;
   margin: 0;
@@ -44,7 +51,7 @@ header h1 {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 10px; /* Add space between the items */
+  gap: 10px; 
 }
 
 .header-right a {
@@ -54,17 +61,16 @@ header h1 {
   font-style: italic; 
   display: flex;
   align-items: center;
-  gap: 5px; /* Space between icon and text */
-  white-space: nowrap; /* Prevent text wrapping */
+  gap: 5px; 
+  white-space: nowrap; 
 }
 
 .header-right a:hover {
-  color: #fff; /* Brighter color on hover */
+  color: #fff;
 }
 
-/* Main Content */
 main {
-  padding-top: 70px; /* Prevent content overlap with fixed header */
+  padding-top: 70px; 
 }
 
 section {
@@ -74,13 +80,13 @@ section {
 
 section h2 {
   font-size: 2rem;
-  color: #ccc; /* Light gray for headings */
+  color: #171616; /* Light gray for headings */
   margin-bottom: 20px;
 }
 
 section p {
   font-size: 1rem;
-  color: #aaa; /* Slightly darker gray for text */
+  color: #0f0f0f; /* Slightly darker gray for text */
 }
 
 section#home {
@@ -92,20 +98,23 @@ main p {
   font-size: 1.2rem; /* Increase font size */
   font-style: italic; /* Apply italics */
   line-height: 1.6; /* Improve readability */
-  color: #ddd; /* Light text color for better contrast */
+  color: #2c2a2a; /* Light text color for better contrast */
   margin: 20px auto; /* Center the content */
-  max-width: 95%; /* Prevent the text from overflowing */
+  max-width: 100%; /* Prevent the text from overflowing */
   text-align: justify; /* Align text for a clean look */
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: gray;
+  text-align: left;
+  padding: 0px;
+  background-color: #c7c0c0;
+  color: #7e7878;
   margin-top: 20px;
+  position: relative;
+  width: 100%;
 }
+
 /* Tooltip styles */
 .resume-link {
   position: relative;
@@ -122,7 +131,7 @@ footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 5px;
+  padding: 1px;
   border-radius: 5px;
   position: absolute;
   bottom: 120%; /* Position above the icon */
@@ -139,8 +148,78 @@ footer {
   opacity: 1;
 }
 
+.editor {
+  background-color: #2d2d2d;
+  
+  color: #f8f8f2;
+  padding: 10px;
+  width: 1000%;
+  height: 17vh;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  overflow-y: hidden;
+  white-space: pre;
+  font-family: 'Courier New', Courier, monospace;
+}
 
-/* Responsive Design */
+.keyword {
+  color: #c678dd;
+}
+
+.string {
+  color: #98c379;
+}
+
+.comment {
+  color: #7f848e;
+  font-style: italic;
+}
+
+.function {
+  color: #61afef;
+}
+
+.variable{
+color:#f8f8f2
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.card {
+  background-color: rgb(44, 41, 41);
+  color: white;
+  width: 250px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
