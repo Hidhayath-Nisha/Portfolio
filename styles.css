@@ -1,245 +1,145 @@
+/* RESET OR BASE STYLES (optional) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY AND BACKGROUND */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: #6e3e3e;
-  background-color: #c7c0c0; 
-  line-height: 1.6;
-  scroll-behavior: smooth;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  /* The .noise-bg class (on body) will be set below. */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
+/* NOISE BACKGROUND */
+/* 
+   The idea here: 
+   1) Use white or a very light color as the base. 
+   2) Overlay a noise texture image that is repeated. 
+   3) Use a gradient if you want a fade from left to right.
+*/
+.noise-bg {
+  background:
+    /* Fallback solid color if the image doesn't load */
+    #ffffff
+    /* The noise texture image repeating */
+    url("noise-texture.png") repeat,
+    /* A gradient from a darker gray on left to transparent on right */
+    linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,255,255,0));
+  background-blend-mode: multiply; /* multiply or overlay, whichever you prefer */
+  background-size: cover;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0px;
-  background-color: rgb(44, 41, 41); 
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; 
-  transition: background-color 0.3s ease; 
-}
-
+/* CONTAINER LAYOUT */
 .container {
   display: flex;
+  min-height: 100vh;  /* Full viewport height */
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;  /* Add space on the left and right sides of the content */
-  width: 100%;
-  max-width: 1200px; /* Optional: constrain content width */
-  margin: 0 auto;  /* Center the container */
+  align-items: flex-start;
 }
 
-header.scrolled {
-  background-color: rgba(0, 0, 0, 0); 
+/* SIDEBAR */
+.sidebar {
+  width: 20%;
+  padding: 2rem;
+  /* We'll keep it left-aligned */
 }
 
-header h1{
-  font-size: 1.5rem;
-  color: gray;
-  margin: 0;
+.sidebar h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px; 
-}
-
-.header-right a {
-  color: gray;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-style: italic; 
-  display: flex;
-  align-items: center;
-  gap: 5px; 
-  white-space: nowrap; 
-}
-
-.header-right a:hover {
-  color: #fff;
-}
-
-main {
-  padding-top: 70px; 
-}
-
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-section h2 {
-  font-size: 2rem;
-  color: #171616; /* Light gray for headings */
-  margin-bottom: 20px;
-}
-
-section p {
+.sidebar h2 {
   font-size: 1rem;
-  color: #0f0f0f; /* Slightly darker gray for text */
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
-section#home {
-  padding-top: 100px; /* Extra space for the first section */
+/* NAVIGATION */
+nav ul {
+  list-style: none;
+  margin-bottom: 2rem;
 }
 
-/* About Section */
-main p {
-  font-size: 1.2rem; /* Increase font size */
-  font-style: italic; /* Apply italics */
-  line-height: 1.6; /* Improve readability */
-  color: #2c2a2a; /* Light text color for better contrast */
-  margin: 20px auto; /* Center the content */
-  max-width: 100%; /* Prevent the text from overflowing */
-  text-align: justify; /* Align text for a clean look */
+nav ul li {
+  margin: 1rem 0;
 }
 
-/* Footer */
-footer {
-  text-align: left;
-  padding: 0px;
-  background-color: #c7c0c0;
-  color: #7e7878;
-  margin-top: 20px;
-  position: relative;
-  width: 100%;
-}
-
-/* Tooltip styles */
-.resume-link {
-  position: relative;
-  display: inline-block;
+nav ul li a {
+  font-size: 1rem;
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* same as the body's color */
 }
 
-/* Tooltip things*/
-.resume-link .tooltip {
-  visibility: hidden;
-  opacity: 0;
-  width: 70px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 120%; /* Position above the icon */
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  font-size: 0.8em;
-  z-index: 10;
-  white-space: nowrap;
-}
-
-.resume-link:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.editor {
-  background-color: #2d2d2d;
-  
-  color: #f8f8f2;
-  padding: 10px;
-  width: 1000%;
-  height: 17vh;
-  border-radius: 7px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  overflow-y: hidden;
-  white-space: pre;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.keyword {
-  color: #c678dd;
-}
-
-.string {
-  color: #98c379;
-}
-
-.comment {
-  color: #7f848e;
-  font-style: italic;
-}
-
-.function {
-  color: #61afef;
-}
-
-.variable{
-color:#f8f8f2
-}
-
-.navbar {
+/* THEME TOGGLE */
+.toggle-switch {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  gap: 10px;
-  padding-top: 20px;
+  gap: 0.5rem;
+  margin-top: 2rem;
 }
 
-.card {
-  background-color: rgb(44, 41, 41);
-  color: white;
-  width: 250px;
-  height: 100px;
-  padding: 20px;
-  border-radius: 0px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.toggle-switch input[type="checkbox"] {
+  display: none; /* hide the actual checkbox */
+}
+
+.toggle-switch label {
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
-.card h3 {
-  margin: 0 0 10px 0;
-  font-size: 22px;
+.toggle-switch label::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
-.card p {
-  margin: 0;
-  font-size: 14px;
+/* Move the circle to the right when checkbox is checked */
+.toggle-switch input[type="checkbox"]:checked + label::after {
+  transform: translateX(20px);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+/* MAIN CONTENT */
+.main-content {
+  width: 80%;
+  padding: 2rem;
+  text-align: right; /* to mimic the reference image's text alignment */
 }
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
+.main-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px; /* keep the paragraph from going too wide */
+  margin-left: auto; /* so the text is pinned to the right side */
+}
 
-  .header-right {
-    margin-top: 10px;
-  }
+/* DARK THEME OVERRIDES */
+.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
 
-  .header-right a {
-    margin-left: 10px;
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 40px 10px;
-  }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
+.dark-theme .noise-bg {
+  /* If you have a different noise for dark mode, swap it here. Otherwise, keep the same. */
+  background:
+    #000
+    url("noise-texture-dark.png") repeat,
+    linear-gradient(to right, rgba(255,255,255,0.2), rgba(0,0,0,0));
+  background-blend-mode: multiply;
+  background-size: cover;
 }

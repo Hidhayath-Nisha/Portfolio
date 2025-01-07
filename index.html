@@ -1,91 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-    <div class="header-left">
-      <h1>Hidhayath Nisha Mohamed Idris</h1>
-    </div>
-    <div class="header-right">
-      <a href="https://www.linkedin.com/in/hidhayath-nisha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:nishaidris25@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="Hidhayath Nisha Mohamed Idris - Resume.pdf" download aria-label="Download Resume" class="resume-link">
-        <i class="fas fa-download"></i>
-        <span class="tooltip">Resume</span>
-      </a>          
-    </div>
-  </div>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <div class="container">
-      <p>A software developer by profession and a problem solver by passion, I'm dedicated to crafting innovative, efficient, and user-centric solutions for real-world challenges. I specialize in designing and building scalable applications that make a difference. My experience spans diverse projects, where I've tackled challenges head-on and collaborated with cross-functional teams to deliver high-quality, reliable software. With an analytical mindset and creative problem-solving abilities, I thrive in dynamic environments, pushing technology's boundaries to enhance user experiences. Beyond coding, I'm committed to continuous learning, staying ahead in the ever-evolving tech landscape to ensure my work aligns with the latest trends and best practices. </p>
-    </div>
-    <div class="container">
-    <div class="editor">
-    <span class="variable">life = </span><span class="keyword">True</span>
-    <span class="keyword">while</span><span class="variable"> life:</span><span class="comment"> # Never ending? which is life, until u die a.k.a system crashes lol... so lets let it run.</span>
-    &nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"I have to be me. Everyone else is already taken."</span>)<br>
-    </div>
-    </div>
-    <div class="container">
-      <div class="navbar">
-        <div class="card" onclick="window.location.href='education.html'">
-          <h3>Education</h3>
-          <p>Learn more about my educational background.</p>
-        </div>
-        <div class="card" onclick="window.location.href='experience.html'">
-          <h3>Experience</h3>
-          <p>View my professional experience and roles.</p>
-        </div>
-        <div class="card" onclick="window.location.href='skills.html'">
-          <h3>Skills</h3>
-          <p>Discover the skills I have developed.</p>
-        </div>
-        <div class="card" onclick="window.location.href='projects.html'">
-          <h3>Projects</h3>
-          <p>Explore the projects I have worked on.</p>
-        </div>
-      </div>
-  </div>
-    <!-- <div>
-    <section id="experience">
-      <h2>Experience</h2>
-      <p>I am the dummy content under this heading.</p>
-    </section>
-    <section id="education">
-      <h2>Education</h2>
-      <p>I am the dummy content under this heading.</p>
-    </section>
-    <section id="skills">
-      <h2>Skills</h2>
-      <p>I am the dummy content under this heading.</p>
-    </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>I am the dummy content under this heading.</p>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>I am the dummy content under this heading.</p>
-    </section>
-    </div> -->
-  </main>
-
-  <footer>
+<body class="noise-bg">
   <div class="container">
-  
-  <p>&copy; 2025 Hidhayath Nisha Mohamed Idris. Please dont copy XD</p>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1>Your Name</h1>
+      <h2>Designer & Developer</h2>
+
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#info">Info</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- THEME TOGGLE -->
+      <div class="toggle-switch">
+        <span>LIGHT</span>
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle"></label>
+        <span>DARK</span>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <p>
+        Born in 1994 in Osaka, Japan. I believe web design can be more diverse 
+        and inspiring. With a mission to present the possibilities of web design, 
+        I am pursuing new expressions through experiments and thoughts.
+      </p>
+    </main>
   </div>
-  </footer>
+
+  <!-- Link to the external JS file -->
+  <script src="script.js"></script>
 </body>
 </html>
