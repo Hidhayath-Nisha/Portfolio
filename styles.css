@@ -1,145 +1,218 @@
-/* RESET OR BASE STYLES (optional) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY AND BACKGROUND */
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #fff;
-  color: #000;
-  /* The .noise-bg class (on body) will be set below. */
-}
-
-/* NOISE BACKGROUND */
-/* 
-   The idea here: 
-   1) Use white or a very light color as the base. 
-   2) Overlay a noise texture image that is repeated. 
-   3) Use a gradient if you want a fade from left to right.
-*/
-.noise-bg {
-  background:
-    /* Fallback solid color if the image doesn't load */
-    #ffffff
-    /* The noise texture image repeating */
-    url("noise-texture.png") repeat,
-    /* A gradient from a darker gray on left to transparent on right */
-    linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,255,255,0));
-  background-blend-mode: multiply; /* multiply or overlay, whichever you prefer */
-  background-size: cover;
-}
-
-/* CONTAINER LAYOUT */
-.container {
-  display: flex;
-  min-height: 100vh;  /* Full viewport height */
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-/* SIDEBAR */
-.sidebar {
-  width: 20%;
-  padding: 2rem;
-  /* We'll keep it left-aligned */
-}
-
-.sidebar h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.sidebar h2 {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-}
-
-/* NAVIGATION */
-nav ul {
-  list-style: none;
-  margin-bottom: 2rem;
-}
-
-nav ul li {
-  margin: 1rem 0;
-}
-
-nav ul li a {
-  font-size: 1rem;
-  text-decoration: none;
-  color: inherit; /* same as the body's color */
-}
-
-/* THEME TOGGLE */
-.toggle-switch {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-}
-
-.toggle-switch input[type="checkbox"] {
-  display: none; /* hide the actual checkbox */
-}
-
-.toggle-switch label {
-  width: 40px;
-  height: 20px;
-  background: #ccc;
-  border-radius: 20px;
-  cursor: pointer;
+  font-family: Arial, sans-serif;
+  background: url("noise-texture.png") repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   position: relative;
 }
 
-.toggle-switch label::after {
-  content: "";
+/* Hamburger icon 
+.hamburger {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  background: #fff;
-  border-radius: 50%;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+  color: #000;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.hamburger-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 4rem; 
+  z-index: 3;
+}
+
+.sidenav a {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #000;
+  display: block;
   transition: 0.3s;
 }
 
-/* Move the circle to the right when checkbox is checked */
-.toggle-switch input[type="checkbox"]:checked + label::after {
-  transform: translateX(20px);
+.sidenav a:hover {
+  background-color: #ddd;
 }
 
-/* MAIN CONTENT */
-.main-content {
-  width: 80%;
-  padding: 2rem;
-  text-align: right; /* to mimic the reference image's text alignment */
+.closebtn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #000;
+}
+*/
+
+.header-content {
+  position: fixed;
+  top: 1rem;
+  left: 4rem; 
+  color: #000;
 }
 
-.main-content p {
+.header-content h1 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: sans-serif;
+}
+
+.header-content .profession {
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: 1.2rem; 
+  font-style: italic;
+}
+
+.description {
+  position: absolute;
+  bottom: 7rem;
+  right: 1rem;
+  width: 35%;
+  text-align: end;
+  font-style: italic;
+  padding-right: 40px;
+}
+
+.description h3 {
   font-size: 1rem;
-  line-height: 1.6;
-  max-width: 500px; /* keep the paragraph from going too wide */
-  margin-left: auto; /* so the text is pinned to the right side */
+  color: #000;
+  line-height: 1.5;
+  font-weight: 400
 }
 
-/* DARK THEME OVERRIDES */
-.dark-theme {
-  background-color: #000;
-  color: #fff;
+.social-icons {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  padding-left: 50px;
 }
 
-.dark-theme .noise-bg {
-  /* If you have a different noise for dark mode, swap it here. Otherwise, keep the same. */
-  background:
-    #000
-    url("noise-texture-dark.png") repeat,
-    linear-gradient(to right, rgba(255,255,255,0.2), rgba(0,0,0,0));
-  background-blend-mode: multiply;
-  background-size: cover;
+.social-icons .icon {
+  font-size: 1.3rem;
+  cursor: auto;
+  transition-delay: 0ms;
+  color: #000;
+}
+
+.footer-tagline {
+  position: relative;
+  text-align: start;
+  font-style: italic;
+  padding-left: 0px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 10;
+  align-items: end;
+  padding: 20px;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #0c0c0c;
+  border-radius: 5px;
+}
+
+.menu {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: #090909;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 0rem;
+  right: 0rem;
+  padding: 20px;
+  z-index: 5;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  margin: 20px 0;
+}
+
+.menu ul li a {
+  color: #f6f1f1;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 7px;
+  display: block;
+  border-radius: 5px;
+}
+
+.menu ul li a:hover {
+  background-color: #817e7e;
+}
+
+.menu.open {
+  display: flex;
+}
+
+.menu-section {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0px; 
+  align-content: left;
+}
+
+.hamburger-text {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  text-decoration: none;
+  color: #0c0c0c;
+  cursor: pointer;
+  text-align: left;
+  padding-right: 0px;
 }

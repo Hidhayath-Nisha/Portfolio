@@ -1,7 +1,6 @@
-// THEME TOGGLE FUNCTIONALITY
-const themeToggle = document.getElementById('themeToggle');
+const hamburger = document.getElementById('hamburger-menu');
+const menu = document.getElementById('menu-options');
 
-themeToggle.addEventListener('change', () => {
-  // Toggles the .dark-theme class on the entire body
-  document.body.classList.toggle('dark-theme');
+hamburger.addEventListener('click', function() {
+  menu.classList.toggle('open');
 });
