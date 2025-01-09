@@ -13,66 +13,6 @@ body {
   position: relative;
 }
 
-/* Hamburger icon 
-.hamburger {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 2;
-  color: #000;
-}
-
-.hamburger-menu {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-.hamburger-icon {
-  font-size: 24px;
-  cursor: pointer;
-  color: black;
-}
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 4rem; 
-  z-index: 3;
-}
-
-.sidenav a {
-  padding: 1rem 2rem;
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #000;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  background-color: #ddd;
-}
-
-.closebtn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 2rem;
-  text-decoration: none;
-  color: #000;
-}
-*/
-
 .header-content {
   position: fixed;
   top: 1rem;
@@ -152,9 +92,9 @@ body {
 
 .menu {
   position: fixed;
-  width: 250px;
+  width: 273px;
   height: 100vh;
-  background-color: #090909;
+  background-color: #232121;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -215,4 +155,82 @@ body {
   cursor: pointer;
   text-align: left;
   padding-right: 0px;
+}
+
+.close-btn {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 1.8rem;
+  right: 14rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 250px;
+  padding-left: 40px;
+  position: fixed;
+  width: 100%;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  position: relative;
+  width: 100%;
+}
+
+.timeline-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+}
+
+/*.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #333;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+*/
+.timeline-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  object-fit: cover;
+  margin: 0 20px;
+  z-index: 2;
+}
+
+
+.timeline-text {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.timeline-text h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.timeline-text p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
 }
