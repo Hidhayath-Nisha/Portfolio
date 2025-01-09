@@ -1,0 +1,76 @@
+/* Basic Styles for the Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  position: relative;
+  width: 100%;
+}
+
+/* Timeline Item Styling */
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  position: relative;
+  width: 80%;
+}
+
+/* Position the first item on the left and the second on the right */
+.timeline-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.timeline-content.right {
+  flex-direction: row-reverse;
+}
+
+/* The vertical connecting line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #333;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Image Styling */
+.timeline-img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* Text Content Styling */
+.timeline-text {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+  z-index: 2;
+}
+
+.timeline-text h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.timeline-text p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
