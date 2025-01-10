@@ -166,71 +166,93 @@ body {
   right: 14rem;
 }
 
-.timeline {
+.timeline-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 250px;
-  padding-left: 40px;
-  position: fixed;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  padding-left: 50px; 
 }
 
-.timeline-item {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-  position: relative;
-  width: 100%;
+.vertical-line {
+  position: absolute;
+  left: 87px; 
+  top: 8rem;
+  bottom:7rem;
+  width: 3px;
+  background-color: black;
+  z-index: 0; 
+  height: auto; 
 }
 
 .timeline-content {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  margin: 30px 0;
   position: relative;
-  flex-direction: row;
+  width: 100%;
+  z-index: 1; 
 }
 
-/*.timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background-color: #333;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-*/
 .timeline-img {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  border: 3px solid #333;
-  object-fit: cover;
-  margin: 0 20px;
-  z-index: 2;
+  object-fit:cover;
+  margin-right: 20px;
 }
-
 
 .timeline-text {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  padding: 10px 15px;
+  line-height: 1.5;
+  flex: 1;
+  max-width: 400px;
 }
 
-.timeline-text h3 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-  color: #333;
+.edu-desc{
+  line-height: 1.2;
+  font-weight: lighter;
+  font-size: 0.9rem; 
+  font-style: italic;
+  flex: 1;
+  font-weight: 100;
+  text-align: justify;
+  max-width: 500px;
+  color: #4e4a4a;
 }
 
-.timeline-text p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #555;
+@media (max-width: 768px) {
+  body {
+      flex-direction: column; 
+      align-items: flex-start; 
+  }
+
+  .timeline-container {
+      padding-left: 20px; 
+      max-width: 100%;
+  }
+
+  .vertical-line {
+      left: 40px; 
+  }
+
+  .timeline-content {
+      flex-direction: column;
+      align-items: flex-start; 
+  }
+
+  .timeline-img {
+      margin: 0 0 10px 0; 
+  }
+
+  .timeline-text {
+      max-width: 100%; 
+  }
+  .edu-desc{
+    max-width: 100%;
+  }
 }
